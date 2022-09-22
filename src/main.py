@@ -21,8 +21,8 @@ if __name__ == '__main__':
     # ==============================================================================
     # Lecture image et affichage
     # ==============================================================================
-    image, H, W = load_image(path_to_assets + 'test5.JPG')
-    display_image(image, "Exemple d'image")
+    image, H, W = load_image(path_to_assets + 'test4.JPG')
+    display_image(image, "Image Test")
 
     # image_bin = binarisation_image(image, H, W, 200)
     # display_image(image_bin, "Exemple d'image Bin")
@@ -34,8 +34,12 @@ if __name__ == '__main__':
     # display_image(image_bin_localisation_resized, "Exemple d'image Bin localisée Resize (60, 100)")
 
     list_models = lecture_modeles(path_to_assets)
-    print(reconnaissance_chiffre(image, H, W, list_models, 200))
+    id_model_image = reconnaissance_chiffre(image, H, W, list_models, 200)
 
+    image_model, H_model, W_model = load_image(path_to_assets + '_' + str(id_model_image) + '.png')
+    display_image(image_model, 'Image Model')
+
+    print("C'est un jolie : " + str(id_model_image))
 
 
 
